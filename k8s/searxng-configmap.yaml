@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: searxng-configmap
+  namespace: default
+data:
+  limiter.toml: ""
+  settings.yml: |
+    use_default_settings:
+      engines:
+        remove:
+          - ahmia
+          - torch
+          - wikidata
+          - stackoverflow
+          - reddit
+
+    server:
+      image_proxy: true
+      method: "GET"
+      limiter: false
+
+    search:
+      safe_search: 0
+      autocomplete: ""
+      formats:
+        - html
+        - json
+
+    preferences:
+      lock:
+        - categories
+        - language
+        - locale
+        - autocomplete
+        - image_proxy
+        - method
+        - safesearch
+
+    engines:
+      - name: google
+        engine: google
+        shortcut: go
+        disabled: false
+      - name: duckduckgo
+        engine: duckduckgo
+        shortcut: ddg
+        disabled: false
+      - name: bing
+        engine: bing
+        shortcut: bi
+        disabled: false
+      - name: qwant
+        engine: qwant
+        shortcut: qw
+        disabled: false
+      - name: wikipedia
+        engine: wikipedia
+        shortcut: wp
+        disabled: false
+      - name: github
+        engine: github
+        shortcut: gh
+        disabled: false
+      - name: arxiv
+        engine: arxiv
+        shortcut: ar
+        disabled: false
+      - name: google news
+        engine: google_news
+        shortcut: gn
+        disabled: false

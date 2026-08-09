@@ -25,8 +25,8 @@ spec:
         - secretRef:
             name: searxng-secret
         env:
-        - name: SEARCH_FORMATS
-          value: "html,json"
+        - name: TZ
+          value: "Asia/Hong_Kong"
         livenessProbe:
           httpGet:
             path: /healthz
@@ -47,13 +47,16 @@ spec:
             cpu: "1000m"
             memory: "1Gi"
         volumeMounts:
-        - name: searxng-data
-          mountPath: /etc/searxng
+        - name: searxng-config
+          mountPath: /etc/searxng/settings.yml
+          subPath: settings.yml
+        - name: searxng-config
+          mountPath: /etc/searxng/limiter.toml
+          subPath: limiter.toml
       volumes:
-      - name: searxng-data
-        hostPath:
-          path: /mnt/workspaces/searxng/data
-          type: DirectoryOrCreate
+      - name: searxng-config
+        configMap:
+          name: searxng-configmap
 ---
 apiVersion: v1
 kind: Service
