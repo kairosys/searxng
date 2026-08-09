@@ -9,7 +9,7 @@ Config-only repo for a self-hosted [searxng](https://docs.searxng.org/) instance
 - `k8s/searxng-secret.yaml` — Secret with `SEARXNG_SECRET` and `SEARXNG_BASE_URL`.
 - `k8s/searxng-external-ingress.yaml` — public Ingress for `search.furseal.net`.
 
-`.gitignore` excludes `data/`, `k8s/*-secret.yaml`, `k8s/*-external-ingress.yaml`. Repo is not yet a git repo; if `git init` is run, those are expected to stay untracked.
+`.gitignore` excludes `data/`, `k8s/*-secret.yaml`, `k8s/*-external-ingress.yaml` — all still untracked. Only `.gitignore`, `AGENTS.md`, `LICENSE`, `README.md`, and `k8s/searxng-deployment.yaml` are committed. Don't `git add -f` the ignored files.
 
 ## Deploy
 
