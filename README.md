@@ -78,7 +78,7 @@ Used by the liveness and readiness probes to determine pod health.
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}}}%%
 graph LR
     A[Client<br/>Browser / AI agent] --> B[Ingress<br/>NGINX]
-    B --> C[Service<br/>ClusterIP :80]
+    B --> C[Service<br/>ClusterIP :8080]
     C --> D[SearXNG Pod<br/>port 8080]
     D --> E[Google]
     D --> F[DuckDuckGo]
