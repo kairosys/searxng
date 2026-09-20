@@ -61,7 +61,7 @@ spec:
               memory: "256Mi"
             limits:
               cpu: "1000m"
-              memory: "512Gi"
+              memory: "512Mi"
           volumeMounts:
             - name: searxng-config
               mountPath: /etc/searxng/settings.yml

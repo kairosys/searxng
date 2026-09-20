@@ -164,7 +164,7 @@ kubectl apply -f k8s/searxng-secret.yaml
 kubectl apply -f k8s/searxng-external-ingress.yaml
 ```
 
-The Deployment runs a single replica of `searxng/searxng:latest` on port 8080 with a `256Mi` memory request and a `512Gi` memory limit, plus liveness and readiness probes on `/healthz`. Config is delivered via ConfigMap; restart the pod to pick up changes.
+The Deployment runs a single replica of `searxng/searxng:latest` on port 8080 with a `256Mi` memory request and a `512Mi` memory limit, plus liveness and readiness probes on `/healthz`. Config is delivered via ConfigMap; restart the pod to pick up changes.
 
 ## Contributing
 
