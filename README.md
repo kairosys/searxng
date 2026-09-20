@@ -12,10 +12,10 @@
 </p>
 
 <p align="center">
-  <a href="https://docs.anthropic.com/en/docs/claude-code"><img src="https://img.shields.io/badge/SearXNG-00B388?style=flat&logo=searxng&logoColor=white" alt="SearXNG" /></a>
-  <a href="https://docs.anthropic.com/en/docs/claude-code"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" /></a>
-  <a href="https://docs.anthropic.com/en/docs/claude-code"><img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white" alt="Kubernetes" /></a>
-  <a href="https://docs.anthropic.com/en/docs/claude-code"><img src="https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white" alt="Nginx" /></a>
+  <a href="https://docs.searxng.org/"><img src="https://img.shields.io/badge/SearXNG-00B388?style=flat&logo=searxng&logoColor=white" alt="SearXNG" /></a>
+  <a href="https://docs.docker.com/"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" /></a>
+  <a href="https://kubernetes.io/docs/"><img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white" alt="Kubernetes" /></a>
+  <a href="https://docs.nginx.com/nginx-ingress-controller/"><img src="https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white" alt="Nginx" /></a>
 </p>
 
 This repository contains the configuration and Kubernetes manifests for a self-hosted SearXNG instance. It runs the official `searxng/searxng` container with runtime settings delivered via a ConfigMap and is exposed both internally and on the public internet.
@@ -164,7 +164,7 @@ kubectl apply -f k8s/searxng-secret.yaml
 kubectl apply -f k8s/searxng-external-ingress.yaml
 ```
 
-The Deployment runs a single replica of `searxng/searxng:latest` on port 8080 with CPU and memory limits, plus liveness and readiness probes on `/healthz`. Config is delivered via ConfigMap; restart the pod to pick up changes.
+The Deployment runs a single replica of `searxng/searxng:latest` on port 8080 with a `256Mi` memory request and a `512Gi` memory limit, plus liveness and readiness probes on `/healthz`. Config is delivered via ConfigMap; restart the pod to pick up changes.
 
 ## Contributing
 
